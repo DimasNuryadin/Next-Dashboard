@@ -1,12 +1,11 @@
 import Image from "next/image";
 import styles from "@/app/ui/home.module.css";
-import { usePathname } from "next/navigation";
+import Header from "@/components/moleculs/Header";
 
 export default function Home() {
-  const pathname = usePathname();
-  console.log(pathname)
   return (
     <>
+      <Header />
       <div className="relative w-0 h-0 border-l-[15px] border-r-[15px] border-b-[26px] border-l-transparent border-r-transparent border-b-black" />
       <h2>Dimas Nuryadin</h2>
       <Image
