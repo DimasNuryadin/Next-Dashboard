@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <Header />
       <div className="relative w-0 h-0 border-l-[15px] border-r-[15px] border-b-[26px] border-l-transparent border-r-transparent border-b-black" />
-      <h2>Dimas Nuryadin</h2>
+      <h2 className={styles.shape}>Dimas Nuryadin</h2>
       <Image
         src="/hero-desktop.jpg"
         width={1000}
