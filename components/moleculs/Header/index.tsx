@@ -1,22 +1,30 @@
+import Link from "next/link";
+
 export default function Header() {
   return (
-    <header className="bg-blue-600 text-white px-6 py-4 shadow">
+    <header className="text-white px-28 py-4 shadow">
       <div className="flex items-center justify-between">
-        {/* Logo/Gambar di kiri */}
-        {/* <img
-          src="/logo.png" // Ganti dengan path gambar yang sesuai
-          alt="Logo"
-          className="h-10 w-10 object-cover rounded-full"
-        /> */}
+        <Link href="/">
+          <img
+            className="cursor-pointer"
+            src="/images/logo.png"
+            alt="Logo"
+          />
+        </Link>
 
-        {/* Link di kanan */}
         <nav className="flex space-x-6">
-          <a href="/dashboard" className="hover:underline">
-            Dashboard
-          </a>
-          <a href="/profile" className="hover:underline">
-            Profile
-          </a>
+          <Link href="/showcase" className="text-blue-950 transition duration-300 hover:text-blue-600">
+            Showcase
+          </Link>
+          <Link href="/catalog" className="text-blue-950 transition duration-300 hover:text-blue-600">
+            Catalog
+          </Link>
+          <Link href="/delivery" className="text-blue-950 transition duration-300 hover:text-blue-600">
+            Delivery
+          </Link>
+          <Link href="/rewards" className="text-blue-950 transition duration-300 hover:text-blue-600">
+            Rewards
+          </Link>
         </nav>
       </div>
     </header>
