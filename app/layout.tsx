@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { inter } from "@/app/ui/fonts";
 import "./globals.css";
-import Header from "@/components/moleculs/Header";
+import Sidebar from "@/components/moleculs/Sidebar";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -18,8 +18,12 @@ export default function RootLayout({
       <body
         className={`${inter.className} antialiased`}
       >
-        <Header />
-        {children}
+        <div className="grid auto-cols-max grid-flow-col">
+          <Sidebar />
+          <div className="z-10">
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );
