@@ -1,27 +1,28 @@
 "use client"
-import { useRouter } from "next/navigation";
-import React, { useState } from 'react'
 
-export default function Tambah() {
-  const [name, setName] = useState("")
+import { useRouter } from "next/navigation";
+import { useState } from "react"
+
+export default function EditClient({ slug }: Readonly<{ slug: string }>) {
+  const [name, setName] = useState("");
   const router = useRouter();
 
   async function submit() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_URL}/category`, {
-      method: "POST",
+    const res = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_URL}/category?id=${slug}`, {
+      method: "PUT",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name })
-    });
+    })
     const data = await res.json();
-    if (res.status === 201) {
+    if (res.status === 200) {
       router.push("/category");
-      alert(`Berhasil Tambah ${data.name}`)
+      alert(`Berhasil edit ${data.name}`)
     }
   }
 
   return (
     <div className="container mx-auto px-12 py-13">
-      <h1 className="text-blue-900 font-medium text-4xl mb-10">Tambah Category</h1>
+      <h1 className="text-blue-900 font-medium text-4xl mb-10">Edit Category</h1>
 
       {/* <form className="max-w-sm mx-auto"> */}
       <div className="mb-5">
