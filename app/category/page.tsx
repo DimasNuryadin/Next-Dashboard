@@ -26,7 +26,7 @@ export default function Category() {
       method: "DELETE"
     })
     const data = await res.json();
-    alert(`${data.data.name} telah dihapus`);
+    alert(`${data.categories.name} telah dihapus`);
     fetchCategories();
   }
 
