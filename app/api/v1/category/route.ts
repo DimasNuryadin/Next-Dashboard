@@ -1,6 +1,10 @@
 import { prisma } from "@/app/lib/prisma";
 import { NextRequest, NextResponse } from 'next/server';
 
+interface CategoryInput {
+  name: string
+}
+
 export async function GET() {
   const categories = await prisma.category.findMany();
   return NextResponse.json({ 
@@ -10,7 +14,7 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
-  const { name } = await req.json();
+  const { name }: CategoryInput = await req.json();
   if (!name) {
     return NextResponse.json({ error: 'Nama wajib diisi' }, { status: 400 })
   }
@@ -25,7 +29,7 @@ export async function POST(req: NextRequest) {
 export async function PUT(request: NextRequest) {
   const { searchParams } = new URL(request.url)
   const id = parseInt(searchParams.get('id') ?? '')
-  const { name } = await request.json()
+  const { name }: CategoryInput = await request.json()
 
   const categories = await prisma.category.update({
     where: { id },
