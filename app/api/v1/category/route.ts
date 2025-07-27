@@ -14,7 +14,9 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
-  const { name }: CategoryInput = await req.json();
+  const body: CategoryInput = await req.json();
+  const { name } = body;
+
   if (!name) {
     return NextResponse.json({ error: 'Nama wajib diisi' }, { status: 400 })
   }
@@ -29,7 +31,8 @@ export async function POST(req: NextRequest) {
 export async function PUT(request: NextRequest) {
   const { searchParams } = new URL(request.url)
   const id = parseInt(searchParams.get('id') ?? '')
-  const { name }: CategoryInput = await request.json()
+  const body: CategoryInput = await request.json();
+  const { name } = body;
 
   const categories = await prisma.category.update({
     where: { id },
