@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react"
 
-export default function EditClient({ slug }: Readonly<{ slug: string }>) {
+export default function EditClient({ slug }: Readonly<{ slug: number }>) {
   const [name, setName] = useState("");
   const router = useRouter();
 

@@ -1,5 +1,5 @@
 'use client';
-import style from '@/components/atoms/Button/button.module.css'
+// import style from '@/components/atoms/Button/button.module.css'
 import { useRouter } from 'next/navigation';
 
 interface ButtonProps {
@@ -11,7 +11,7 @@ interface ButtonProps {
 
 export default function Button(props: Readonly<Partial<ButtonProps>>) {
   const router = useRouter();
-  const { tittle, link, icon, size } = props;
+  const { tittle, link } = props;
 
   const submit = () => {
     if (link) {
@@ -20,6 +20,6 @@ export default function Button(props: Readonly<Partial<ButtonProps>>) {
   }
 
   return (
-    <button className={style.btn} onClick={submit}>{tittle}</button>
+    <button className="bg-white text-blue-700 font-semibold px-8 py-3 rounded-lg shadow hover:bg-blue-700 hover:text-white transition-colors duration-200 cursor-pointer" onClick={submit}>{tittle}</button>
   )
 }

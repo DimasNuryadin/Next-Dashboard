@@ -3,7 +3,6 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET() {
   const categories = await prisma.category.findMany();
-  console.log(categories)
   return NextResponse.json({ 
     message: 'Success',
     data: categories

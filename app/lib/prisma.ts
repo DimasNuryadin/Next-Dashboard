@@ -1,5 +1,4 @@
 //  file helper yang biasanya digunakan untuk menginisialisasi dan men-share satu instance PrismaClient
-// lib/prisma.ts
 import { PrismaClient } from '@prisma/client'
 
 const globalForPrisma = globalThis as unknown as {

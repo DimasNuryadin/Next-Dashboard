@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -35,7 +36,7 @@ export default function Category() {
       <h1 className="text-blue-900 font-medium text-4xl mb-10">Category</h1>
       <Link href="/category/tambah" >
         <div className="flex text-center gap-2 py-2 px-2 bg-blue-800 text-white font-medium">
-          <img src="/icon/ic-plus.svg" alt="Tambah" />
+          <Image src="/icon/ic-plus.svg" alt="Tambah" width={24} height={24} />
           Tambah
           { }
         </div>
