@@ -1,13 +1,9 @@
 "use client"
 
+import { CategoryTypes } from "@/services/data-types";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
-interface PropsCategory {
-  id: number,
-  name: string
-}
 
 export default function Category() {
   const [categories, setCategories] = useState([]);
@@ -46,16 +42,18 @@ export default function Category() {
           <tr>
             <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">No</th>
             <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama</th>
+            <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
             <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
           </tr>
         </thead>
         <tbody className="bg-gray-50 divide-y divide-gray-200">
           {
-            categories.map((item: PropsCategory) => {
+            categories.map((item: CategoryTypes) => {
               return (
                 <tr key={item.id}>
                   <td className="px-4 py-2 whitespace-nowrap">{item.id}</td>
                   <td className="px-4 py-2 whitespace-nowrap">{item.name}</td>
+                  <td className="px-4 py-2 whitespace-nowrap">{item.description}</td>
                   <td className="px-4 py-2 whitespace-nowrap">
                     <Link href={`/category/edit/${item.id}`}>
                       <button type="button" className="cursor-pointer text-white bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-5 py-2 me-2 mb-2">Edit</button>
