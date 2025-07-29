@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { inter } from "@/app/ui/fonts";
 import "./globals.css";
+import NextAuthSession from "./NextAuthSession";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -19,7 +20,9 @@ export default function RootLayout({
       >
         <div className="grid auto-cols-max grid-flow-col">
           <div className="z-10">
-            {children}
+            <NextAuthSession>
+              {children}
+            </NextAuthSession>
           </div>
         </div>
       </body>

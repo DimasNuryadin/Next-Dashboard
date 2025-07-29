@@ -8,7 +8,7 @@ export default function Tambah() {
   const router = useRouter();
 
   async function submit() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_URL}/category`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/category`, {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, description })

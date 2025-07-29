@@ -9,7 +9,7 @@ export default function EditClient({ slug }: Readonly<{ slug: number }>) {
   const router = useRouter();
 
   async function submit() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_URL}/category?id=${slug}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/category?id=${slug}`, {
       method: "PUT",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, description })

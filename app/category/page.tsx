@@ -13,13 +13,13 @@ export default function Category() {
   }, [])
 
   async function fetchCategories() {
-    const data = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_URL}/category`);
+    const data = await fetch(`${process.env.NEXT_PUBLIC_API}/category`);
     const res = await data.json()
     setCategories(res.data);
   }
 
   async function handleDelete(id: number) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_URL}/category?id=${id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/category?id=${id}`, {
       method: "DELETE"
     })
     const data = await res.json();
