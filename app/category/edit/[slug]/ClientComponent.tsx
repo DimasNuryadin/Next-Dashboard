@@ -8,8 +8,11 @@ export default function EditClient({ slug }: Readonly<{ slug: number }>) {
   const [description, setDescription] = useState("");
   const router = useRouter();
 
+  const ROOT_API = process.env.NEXT_PUBLIC_API;
+  const API_VER = "api/v1";
+
   async function submit() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/category?id=${slug}`, {
+    const res = await fetch(`${ROOT_API}/${API_VER}/category?id=${slug}`, {
       method: "PUT",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, description })

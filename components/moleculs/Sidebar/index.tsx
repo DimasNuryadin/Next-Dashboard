@@ -1,9 +1,11 @@
 "use client"
 
 import clsx from "clsx";
+import { signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -66,6 +68,12 @@ export default function Sidebar() {
               <p>Payments</p>
             </Link>
           </div>
+
+          <button
+            onClick={() => signOut({ callbackUrl: "/signin" })}
+            className="mt-12 text-center cursor-pointer rounded-lg p-2 bg-black/65 text-white text-base hover:text-white transition">
+            Logout
+          </button>
         </nav>
       </div>
     </>

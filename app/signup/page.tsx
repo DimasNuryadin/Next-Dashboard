@@ -13,7 +13,7 @@ export default function SignUp() {
   const [password, setPassword] = useState("");
 
   async function handleSignUp() {
-    const res = await fetch(`${ROOT_API}/auth/register`, {
+    const res = await fetch(`${ROOT_API}/api/auth/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, password })
@@ -21,7 +21,7 @@ export default function SignUp() {
     const data = await res.json();
     if (res.status === 201) {
       router.push("/signin");
-      alert(`Berhasil Tambah ${data.name}`);
+      alert(`Berhasil Tambah ${data.user.name}`);
     }
   }
 

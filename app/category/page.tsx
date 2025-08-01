@@ -5,6 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+const ROOT_API = process.env.NEXT_PUBLIC_API;
+const API_VER = "api/v1";
+
 export default function Category() {
   const [categories, setCategories] = useState([]);
 
@@ -13,13 +16,13 @@ export default function Category() {
   }, [])
 
   async function fetchCategories() {
-    const data = await fetch(`${process.env.NEXT_PUBLIC_API}/category`);
+    const data = await fetch(`${ROOT_API}/${API_VER}/category`);
     const res = await data.json()
     setCategories(res.data);
   }
 
   async function handleDelete(id: number) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/category?id=${id}`, {
+    const res = await fetch(`${ROOT_API}/${API_VER}/category?id=${id}`, {
       method: "DELETE"
     })
     const data = await res.json();

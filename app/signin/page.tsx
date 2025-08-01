@@ -10,7 +10,7 @@ export default function SignIn() {
   const [password, setPassword] = useState("")
   const router = useRouter();
 
-  const handleSignIn = async (e) => {
+  const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const res = await signIn("credentials", {
       redirect: false,
